@@ -1,0 +1,4 @@
+python3 create_full_warp_admin.py
+tar -xzf woodstone_festival_2025_euystacio_warp_full_ready_admin.tar.gz
+cd woodstone_festival_2025_euystacio_warp/app
+python3 app.py
