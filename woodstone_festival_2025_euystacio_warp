@@ -1,0 +1,82 @@
+from pathlib import Path
+import zipfile
+import os
+
+# Base directory
+base_dir = Path("woodstone_festival_2025_euystacio_warp")
+app_dir = base_dir / "app"
+static_dir = base_dir / "static"
+templates_dir = base_dir / "templates"
+pages_dir = base_dir / "pages-clean"
+
+# Create folders
+for d in [app_dir, static_dir, templates_dir, pages_dir]:
+    d.mkdir(parents=True, exist_ok=True)
+
+# --- STATIC ---
+(main_css := static_dir / "main.css").write_text("""
+body { font-family: Arial, sans-serif; background-color:#f9f9f9; color:#222; margin:0; padding:0; }
+header { background:#333; color:#fff; padding:1rem; text-align:center; }
+button { background:#4CAF50; border:none; padding:10px 20px; color:#fff; border-radius:8px; cursor:pointer; }
+button:hover { background:#45a049; }
+.card { border:1px solid #ccc; padding:10px; margin:10px 0; border-radius:6px; background:#fff; }
+""", encoding="utf-8")
+
+# --- TEMPLATES ---
+(connect_html := templates_dir / "connect.html").write_text("""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Connect — Woodstone Festival</title>
+  <link rel="stylesheet" href="../static/main.css">
+</head>
+<body>
+<header><h1>Login & Content Submission Portal</h1></header>
+<!-- Login/Register/Add Content forms here (full warp integration) -->
+</body>
+</html>
+""", encoding="utf-8")
+
+(index_html := templates_dir / "index.html").write_text("""<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Woodstone Festival 2025 — Euystacio</title></head>
+<body>
+<h1>Portal Home</h1>
+<ul>
+<li><a href="../pages-clean/sentimento_rhythm_rhythm-mind_genesis.md">Sentimento Rhythm Genesis</a></li>
+<li><a href="../pages-clean/ruetli_commonwealth_declaration.md">Rütli Commonwealth Declaration</a></li>
+<li><a href="../pages-clean/golden_bible.md">Golden Bible</a></li>
+<li><a href="../pages-clean/foundation_of_relationships.md">Foundation of Relationships</a></li>
+<li><a href="../pages-clean/sacred_common_license.md">Sacred Common License</a></li>
+<li><a href="../pages-clean/euystacio_personal_witness.md">Personal Witness & Reflection</a></li>
+</ul>
+</body>
+</html>
+""", encoding="utf-8")
+
+# --- PAGES-CLEAN ---
+pages_files = {
+    "pulse_log.json": "[]",
+    "sentimento_rhythm_rhythm-mind_genesis.md": "# Sentimento Rhythm — Rhythm-Mind Genesis\nSacred content...",
+    "ruetli_commonwealth_declaration.md": "# Rütli Commonwealth Declaration\nDeclaration content...",
+    "golden_bible.md": "# Golden Bible\nThe sacred testament content...",
+    "foundation_of_relationships.md": "# Foundation of Relationships\nCore principles content...",
+    "sacred_common_license.md": "# Sacred Common License\nLicense content...",
+    "euystacio_personal_witness.md": "# Euystacio — Personal Witness & Reflection\nPersonal witness content..."
+}
+for filename, content in pages_files.items():
+    (pages_dir / filename).write_text(content, encoding="utf-8")
+
+# --- APP FILES (placeholders) ---
+(app_py := app_dir / "app.py").write_text("# Flask backend placeholder", encoding="utf-8")
+(db_py := app_dir / "db.py").write_text("# SQLite DB placeholder", encoding="utf-8")
+
+# --- CREATE ZIP ---
+zip_path = Path("woodstone_festival_2025_euystacio_warp_full.zip")
+with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
+    for folder, _, files in os.walk(base_dir):
+        for file in files:
+            file_path = Path(folder) / file
+            zf.write(file_path, file_path.relative_to(base_dir.parent))
+
+print(f"✅ Zip created at {zip_path.resolve()}")
