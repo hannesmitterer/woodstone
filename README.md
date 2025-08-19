@@ -14,7 +14,7 @@ with tarfile.open(tar_path, "w:gz") as tar:
     tar.add(base_dir, arcname=base_dir.name)
 
 print(f"✅ Full warp TAR.GZ with admin created at {tar_path.resolve()}")
-✅ Instructions:
+✅ Instructions: for first admin login user "woodstone" password "threefold-zes"
 Save this script as create_full_warp_admin.py
 
 Run:
