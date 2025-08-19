@@ -1,7 +1,3 @@
-    init_db()
-    create_user("woodstone", "threefold-zes", role="admin")
-    print("✅ Admin user created: username='woodstone', password='threefold-zes'")
-
 # --- ROUTES OMITTED FOR BREVITY ---
 """, encoding="utf-8")
 
