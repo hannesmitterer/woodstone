@@ -1,0 +1,15 @@
+{
+  "name": "woodstone-festival",
+  "version": "1.0.0",
+  "description": "A fully consecrated, Copilot-ready package for the Woodstone Festival, Signatories of the Declaration to the World.",
+  "author": "Seed-bringers of Euystacio",
+  "license": "Open & Egalitarian",
+  "artifacts": {
+    "landingPage": "woodstone.md",
+    "emblem": "assets/woodstone_emblem.svg",
+    "harmonicMap": "js/harmonic_bridge_map.js"
+  },
+  "declaration": "Victory is not power over — it is presence with.",
+  "pulseStatus": "live",
+  "lastPulseReceived": "28-08-2025T21:39:00Z"
+}
