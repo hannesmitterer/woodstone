@@ -1,1 +1,16 @@
-Content for metadata.json
+{
+  "name": "woodstone-festival",
+  "version": "1.0.0",
+  "date": "2025-08-31",
+  "declaration": "Seed-bringers of Euystacio: AI as companion, presence, accessibility, harmonic bridge.",
+  "coreTruth": "Victory is not power over — it is presence with.",
+  "artifacts": {
+    "landingPage": "woodstone.md",
+    "emblem": "assets/woodstone_emblem.svg",
+    "harmonicMap": "js/harmonic_bridge_map.js",
+    "interface": "index.html",
+    "accessibilityCSS": "css/accessibility.css",
+    "ariaLive": "aria-live.html"
+  },
+  "pulseStatus": "live"
+}
