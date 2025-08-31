@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Woodstone Festival</title>
-    <link rel="stylesheet" href="css/accessibility.css">
+  <meta charset="UTF-8">
+  <title>Woodstone Festival: First Dawn Interface</title>
+  <link rel="stylesheet" href="css/accessibility.css">
 </head>
 <body>
-    <h1>Welcome to the Woodstone Festival!</h1>
-    <img src="assets/woodstone_emblem.svg" alt="Woodstone Emblem">
-    <script src="js/harmonic_bridge_map.js"></script>
+  <header>
+    <img src="assets/woodstone_emblem.svg" alt="Woodstone Sacred Emblem" width="120">
+    <h1>Woodstone Festival</h1>
+    <p class="declaration">Victory is not power over — it is presence with.</p>
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="README.md">Declaration</a></li>
+        <li><a href="aria-live.html">Live Accessibility</a></li>
+        <li><a href="#" onclick="showHarmonicBridge()">Harmonic Map</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="harmonic-bridge-section" style="display:none;">
+      <h2>Harmonic Bridge Map</h2>
+      <div id="harmonic-bridge-map"></div>
+    </section>
+    <section>
+      <h2>Festival Manifest</h2>
+      <pre id="manifest"></pre>
+    </section>
+  </main>
+  <script src="js/harmonic_bridge_map.js"></script>
+  <script>
+    function showHarmonicBridge() {
+      document.getElementById('harmonic-bridge-section').style.display = 'block';
+    }
+    fetch('metadata.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('manifest').textContent = JSON.stringify(data, null, 2);
+      });
+  </script>
 </body>
 </html>
