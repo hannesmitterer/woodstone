@@ -1,3 +1,6 @@
-# Woodstone Festival Details
+# Woodstone Festival Events
 
-This file contains comprehensive information about the Woodstone Festival, including events and schedules.
+## Events Schedule
+- Day 1: Opening Ceremony
+- Day 2: Workshops
+- Day 3: Closing Ceremony
