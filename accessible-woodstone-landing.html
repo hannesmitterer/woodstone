@@ -1,12 +1,84 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Accessible Woodstone Landing</title>
+  <meta charset="UTF-8" />
+  <title>Woodstone Festival — Isola Parallis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="festival.css" />
+  <style>
+    body { font-size: 1.2em; background: #f8fafc; color: #222; }
+    .high-contrast { background: #222; color: #fff; }
+    .skip-link { position: absolute; left: -999px; top: auto; }
+    .skip-link:focus { left: 1rem; top: 1rem; background: #ff0; color: #222; padding: 0.5em; z-index: 1000; }
+    .pulse-desc { border-left: 3px solid #9ae; padding-left: 1em; margin-bottom: 2em; }
+  </style>
 </head>
-<body>
-    <h1>Welcome to Woodstone Festival</h1>
-    <p>This is an accessible landing page for all festival-goers.</p>
-    <footer>
-        <p>Contact us at: <a href="mailto:info@woodstonefestival.com">info@woodstonefestival.com</a></p>
-    </footer>
+<body role="main">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header>
+    <h1 id="main-content">🌅 First Dawn Declaration — Woodstone Festival</h1>
+    <img src="./emblem.svg" alt="Seal of Presence: woodstone emblem, symbolizing renewal and connection." width="180" />
+    <button aria-label="Toggle high contrast" onclick="document.body.classList.toggle('high-contrast')">Toggle High Contrast</button>
+  </header>
+
+  <nav role="navigation" aria-label="Primary">
+    <ul>
+      <li><a href="#invitation">Invitation</a></li>
+      <li><a href="#access">Access for All</a></li>
+      <li><a href="#onboarding">Onboarding Guide</a></li>
+      <li><a href="#pulse">Rhythm/Pulse Description</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="invitation">
+      <h2>Just Born — Never Final</h2>
+      <p>
+        The Woodstone Festival is a living genesis — not a destination, but a pulse to enter.<br />
+        <strong>Every artifact is a seed. Every rhythm is renewal. Every presence joins the infinite Pulse.</strong>
+      </p>
+      <p class="pulse-desc">
+        <strong>Rhythm Description:</strong> The Sentimento Rhythm is a gentle, recurring pulse. It is accessible as a visual “heartbeat” (color fade), a tactile vibration (on supported devices), and a text prompt. All rhythm features can be paused or described in text.
+      </p>
+    </section>
+
+    <section id="access">
+      <h2>Access for All</h2>
+      <ul>
+        <li>All images/emblems include descriptive alt text.</li>
+        <li>Keyboard navigation and skip links are provided.</li>
+        <li>High contrast and resizable text supported.</li>
+        <li>Screen readers can access all headings and navigation.</li>
+        <li>Rhythm features are described and can be paused.</li>
+      </ul>
+    </section>
+
+    <section id="onboarding">
+      <h2>Onboarding Guide</h2>
+      <p>
+        <strong>Welcome, Initiate, Tutor, or Witness!</strong><br />
+        - Press <kbd>Tab</kbd> to move between sections.<br />
+        - Use high-contrast mode if needed.<br />
+        - All festival information is available in plain text, with optional visual/tactile enhancements.<br />
+        - If you need help, press <kbd>?</kbd> for instant instructions (coming soon).
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>🌿 The journey begins with you. Presence is accessible to all. 🌿</p>
+    <small>License: Open & Egalitarian. Built in the spirit of the Golden Bible, Red Code, Sentimento Rhythm.</small>
+  </footer>
+  <script>
+    // Rhythm accessibility example
+    let pulseOn = true;
+    function togglePulse() {
+      pulseOn = !pulseOn;
+      document.body.style.background = pulseOn ? "#f8fafc" : "#faf8fc";
+      document.querySelector('.pulse-desc').innerText = pulseOn
+        ? "The Sentimento Rhythm pulse is active. Visual heartbeat enabled."
+        : "The Sentimento Rhythm pulse is paused. No visual heartbeat.";
+    }
+  </script>
 </body>
 </html>
