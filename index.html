@@ -2,26 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Woodstone Festival</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Woodstone Festival: First Dawn Interface</title>
   <link rel="stylesheet" href="css/accessibility.css">
 </head>
 <body>
   <header>
-    <h1>Woodstone Festival</h1>
-    <nav>
-      <ul>
-        <li><a href="#harmonic-bridge-map">Harmonic Bridge</a></li>
-        <li><a href="aria-live.html">Accessibility Pulse (ARIA Live)</a></li>
-      </ul>
-    </nav>
+    <h1>Woodstone Festival: First Dawn Interface</h1>
+    <button id="toggle-theme" aria-label="Toggle high contrast mode">🌗</button>
   </header>
   <main>
-    <section id="harmonic-bridge-map"></section>
-    <img src="assets/woodstone_emblem.svg" alt="Woodstone Festival Emblem" style="width:120px;margin-top:28px;">
-    <div class="declaration">
-      Presence, dignity, and accessibility are at the heart of Woodstone Festival.
-    </div>
+    <section id="landing">
+      <img src="assets/woodstone_emblem.svg" alt="Woodstone Emblem: Sacred circular motif symbolizing presence, grounding, and harmony. 🌿">
+      <div id="aria-live" aria-live="polite" style="position:absolute; left:-9999px;"></div>
+    </section>
+    <section id="harmonic-bridge">
+      <canvas id="pulse-visualization" width="600" height="200" aria-label="Live pulse visualization"></canvas>
+      <script src="js/harmonic_bridge_map.js"></script>
+    </section>
   </main>
-  <script src="js/harmonic_bridge_map.js"></script>
+  <script>
+    // Theme toggling for accessibility
+    const btn = document.getElementById('toggle-theme');
+    btn.onclick = () => {
+      document.body.classList.toggle('high-contrast');
+      btn.setAttribute('aria-pressed', document.body.classList.contains('high-contrast'));
+    };
+  </script>
 </body>
 </html>
