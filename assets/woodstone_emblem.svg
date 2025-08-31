@@ -1,3 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <circle cx="60" cy="60" r="54" stroke="#3E4E2C" stroke-width="8" fill="#E4F4E0"/>
+  <path d="M60 25 Q85 60 60 95 Q35 60 60 25 Z" fill="#8FCB9B" stroke="#3E4E2C" stroke-width="3"/>
+  <text x="60" y="65" text-anchor="middle" font-size="22" fill="#3E4E2C" font-family="Verdana">🌿</text>
 </svg>
