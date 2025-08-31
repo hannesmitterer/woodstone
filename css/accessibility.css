@@ -1,1 +1,7 @@
-Content for css/accessibility.css
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #333;
+}

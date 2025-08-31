@@ -1,1 +1,2 @@
-Content for js/harmonic_bridge_map.js
+// Harmonic Bridge Map Script
+console.log('Harmonic Bridge Map loaded');
